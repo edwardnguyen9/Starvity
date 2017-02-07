@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-front',
   templateUrl: './front.component.html',
-  styleUrls: ['./front.component.css']
+  styleUrls: ['./front.component.scss']
 })
 export class FrontComponent implements OnInit {
   private images: any = [];
@@ -24,6 +24,11 @@ export class FrontComponent implements OnInit {
       // );
       this.getNew();
     }
+  }
+
+  toPost = (id) => {
+    localStorage.setItem('postId', id);
+    this.router.navigate(['post']);
   }
 
   getNew = () => {

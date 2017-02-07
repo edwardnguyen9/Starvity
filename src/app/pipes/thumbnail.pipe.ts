@@ -21,7 +21,7 @@ export class ThumbnailPipe implements PipeTransform {
         link += '160';
     }
     link += '.png';
-    return name.substring(0, name.length - 4) + link;
+    return name.substring(0, name.lastIndexOf('.')) + link;
   }
 
 }

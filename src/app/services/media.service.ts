@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class MediaService {
-  private url = 'http://media.mw.metropolia.fi/wbma/';
+  private url = 'http://media.mw.metropolia.fi/wbma/media';
   private token;
 
   constructor(private http: Http, private router: Router) {
@@ -12,14 +12,18 @@ export class MediaService {
   }
 
   getMedia = () => {
-    return this.http.get(this.url + 'media');
+    return this.http.get(this.url);
   }
 
   getNew = () => {
-    return this.http.get(this.url + 'media?limit=10');
+    return this.http.get(this.url + '?limit=10');
   }
 
   upload = (data) => {
-    return this.http.post(this.url + 'media?token=' + this.token, data);
+    return this.http.post(this.url + '?token=' + this.token, data);
+  }
+
+  getDetails = (id) => {
+    return this.http.get(this.url + '/' + id);
   }
 }

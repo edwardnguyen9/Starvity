@@ -15,6 +15,7 @@ import { UploadComponent } from './upload/upload.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ThumbnailPipe } from './pipes/thumbnail.pipe';
 import { UsernamePipe } from './pipes/username.pipe';
+import { PostComponent } from './post/post.component';
 
 const routeConfig = [
   {
@@ -46,6 +47,11 @@ const routeConfig = [
     path: 'logout',
     component: LogoutComponent
   }
+  ,
+  {
+    path: 'post',
+    component: PostComponent
+  }
 ];
 
 @NgModule({
@@ -58,7 +64,8 @@ const routeConfig = [
     UploadComponent,
     TopBarComponent,
     ThumbnailPipe,
-    UsernamePipe
+    UsernamePipe,
+    PostComponent
   ],
   imports: [
     BrowserModule,

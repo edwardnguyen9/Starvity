@@ -4,11 +4,11 @@
     <img [src]="'http://media.mw.metropolia.fi/wbma/uploads/'+image.filename">
   </li>
 </ul-->
-<main *ngFor="let image of images">
-  <figure>
+<article *ngFor="let image of images">
+  <figure (click)="toPost(image.file_id)" >
     <h3>{{image.title}}</h3>
     <img [src]="'http://media.mw.metropolia.fi/wbma/uploads/'+(image.filename | thumbnail: 'small')">
     <h6>{{ (image.user_id | username) }}</h6>
     <figcaption>{{image.description}}</figcaption>
   </figure>
-</main>
+</article>

@@ -1,0 +1,5 @@
+<article>
+  <h3>{{post.title}}</h3>
+  <img [src]="'http://media.mw.metropolia.fi/wbma/uploads/' + post.filename" [hidden]="((post.media_type === 'images')? false : true)">
+  <h6>{{ (post.user_id | username) }}</h6>
+</article>
