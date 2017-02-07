@@ -1,0 +1,17 @@
+<form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)" >
+  <p>
+    <label>Username:</label>
+    <input type="text" name="username" ngModel required/>
+  </p>
+  <p>
+    <label>Password:</label>
+    <input type="password" name="password" ngModel required/>
+  </p>
+  <p>
+    <label>Email:</label>
+    <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" ngModel required/>
+  </p>
+  <p>
+    <button type="submit" [disabled]="!registerForm.valid">Register</button>
+  </p>
+</form>

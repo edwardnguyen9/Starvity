@@ -1,0 +1,19 @@
+<nav>
+  <ul>
+    <li [hidden]="!userService.logged" >
+      <a [routerLink]="'/front'">Front page</a>
+    </li>
+    <li [hidden]="userService.logged" >
+      <a [routerLink]="'/login'">Login</a>
+    </li>
+    <li [hidden]="userService.logged" >
+      <a [routerLink]="'/register'">Register</a>
+    </li>
+    <li [hidden]="!userService.logged" >
+      <a [routerLink]="'/upload'">Upload</a>
+    </li>
+    <li [hidden]="!userService.logged" >
+      <a [routerLink]="'/logout'">Logout</a>
+    </li>
+  </ul>
+</nav>
