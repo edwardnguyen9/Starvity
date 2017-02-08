@@ -5,7 +5,7 @@
   <audio *ngIf="post.media_type === 'audio'" [src]="'http://media.mw.metropolia.fi/wbma/uploads/' + post.filename" controls></audio>
   <h6>{{ (post.user_id | username) }}</h6>
   <p>
-    {{post.description}}
+    {{ post.description }}
   </p>
   <p [hidden]="displayText === ''" >{{displayText}} lol</p>
   <button (click)="click()" >{{button}}</button>
