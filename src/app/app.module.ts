@@ -1,3 +1,4 @@
+import { FavouritesService } from './services/favourites.service';
 import { UserService } from './services/user.service';
 import { MediaService } from './services/media.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -49,7 +50,7 @@ const routeConfig = [
   }
   ,
   {
-    path: 'post',
+    path: 'post/:id',
     component: PostComponent
   }
 ];
@@ -75,7 +76,8 @@ const routeConfig = [
   ],
   providers: [
     MediaService,
-    UserService
+    UserService,
+    FavouritesService
   ],
   bootstrap: [AppComponent]
 })

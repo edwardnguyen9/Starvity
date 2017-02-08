@@ -16,19 +16,19 @@ export class FrontComponent implements OnInit {
     if (!this.userService.logged) {
       this.router.navigate(['login']);
     } else {
-      // this.mediaService.getMedia().subscribe(
-      //   (res) => {
-      //     this.images = res.json();
-      //     console.log(this.images);
-      //   }
-      // );
-      this.getNew();
+      this.mediaService.getMedia().subscribe(
+        (res) => {
+          this.images = res.json();
+          console.log(this.images);
+        }
+      );
+      // this.getNew();
     }
   }
 
   toPost = (id) => {
-    localStorage.setItem('postId', id);
-    this.router.navigate(['post']);
+    // localStorage.setItem('postId', id);
+    this.router.navigate(['/post', id]);
   }
 
   getNew = () => {

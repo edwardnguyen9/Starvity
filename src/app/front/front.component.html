@@ -7,7 +7,8 @@
 <article *ngFor="let image of images">
   <figure (click)="toPost(image.file_id)" >
     <h3>{{image.title}}</h3>
-    <img [src]="'http://media.mw.metropolia.fi/wbma/uploads/'+(image.filename | thumbnail: 'small')">
+    <img *ngIf="image.media_type !== 'audio'" [src]="'http://media.mw.metropolia.fi/wbma/uploads/'+(image.filename | thumbnail: 'small')">
+    <img *ngIf="image.media_type === 'audio'" src="img/audio.png" width=160px/>
     <h6>{{ (image.user_id | username) }}</h6>
     <figcaption>{{image.description}}</figcaption>
   </figure>

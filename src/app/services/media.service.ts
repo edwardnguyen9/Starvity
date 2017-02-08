@@ -1,4 +1,3 @@
-import { Router } from '@angular/router';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
 
@@ -7,10 +6,9 @@ export class MediaService {
   private url = 'http://media.mw.metropolia.fi/wbma/media';
   private token;
 
-  constructor(private http: Http, private router: Router) {
+  constructor(private http: Http) {
     this.token = JSON.parse(localStorage.getItem('user')).token;
   }
-
   getMedia = () => {
     return this.http.get(this.url);
   }

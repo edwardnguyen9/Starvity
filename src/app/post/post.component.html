@@ -1,5 +1,12 @@
 <article>
   <h3>{{post.title}}</h3>
-  <img [src]="'http://media.mw.metropolia.fi/wbma/uploads/' + post.filename" [hidden]="((post.media_type === 'images')? false : true)">
+  <img *ngIf="post.media_type === 'image'" width="100%" [src]="'http://media.mw.metropolia.fi/wbma/uploads/' + post.filename"/>
+  <video *ngIf="post.media_type === 'video'" width="100%" [src]="'http://media.mw.metropolia.fi/wbma/uploads/' + post.filename" [poster]="'http://media.mw.metropolia.fi/wbma/uploads/' + post.screenshot" controls></video>
+  <audio *ngIf="post.media_type === 'audio'" [src]="'http://media.mw.metropolia.fi/wbma/uploads/' + post.filename" controls></audio>
   <h6>{{ (post.user_id | username) }}</h6>
+  <p>
+    {{post.description}}
+  </p>
+  <p [hidden]="displayText === ''" >{{displayText}} lol</p>
+  <button (click)="click()" >{{button}}</button>
 </article>

@@ -19,14 +19,8 @@ export class UserService {
   }
 
   getUserInfo = (id) => {
-    let userInfo: any = {};
     const token = JSON.parse(localStorage.getItem('user')).token;
-    this.http.get(this.url + 'users/' + id + '?token=' + token).subscribe(
-      (res) => {
-        userInfo = res.json();
-      }
-    );
-    return userInfo;
+    return this.http.get(this.url + 'users/' + id + '?token=' + token);
   }
 
   logIn = () => {
