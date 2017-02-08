@@ -20,7 +20,7 @@ export class PostComponent implements OnInit {
   private displayText: String = '';
 
   constructor(private http: Http, private router: Router, private route: ActivatedRoute,
-              private userService: UserService, private mediaService: MediaService, private favouriteService: FavouritesService) {
+    private userService: UserService, private mediaService: MediaService, private favouriteService: FavouritesService) {
   }
 
   ngOnInit() {
@@ -89,24 +89,31 @@ export class PostComponent implements OnInit {
       this.favouriteService.addFavorite(this.id).subscribe(
         (res) => {
           console.log(res);
+          this.button = 'Unlike';
+          this.liked = true;
+          this.favouriteService.getFavorite(this.id).subscribe(
+            (res) => {
+              this.likes = res.json();
+              this.display();
+            }
+          );
         }
       );
-      this.button = 'Unlike';
-      this.liked = true;
     } else {
       this.favouriteService.removeFavorite(this.id).subscribe(
         (res) => {
           console.log(res);
+
+          this.button = 'Like';
+          this.liked = false;
+          this.favouriteService.getFavorite(this.id).subscribe(
+            (res) => {
+              this.likes = res.json();
+              this.display();
+            }
+          );
         }
       );
-      this.button = 'Like';
-      this.liked = false;
     }
-    this.favouriteService.getFavorite(this.id).subscribe(
-      (res) => {
-        this.likes = res.json();
-        this.display();
-      }
-    );
   }
 }
